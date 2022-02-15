@@ -1,0 +1,22 @@
+<table class="table" id="tabla-ventas">
+    <tr>
+        <td><b>Fecha</b></td>
+        <td><b>Vendedor</b></td>
+        <td><b>Sucursal</b></td>
+        <td><b>Componentes</b></td>
+        <td><b>Precio</b></td>
+        <td></td>
+    </tr>
+    <tr *ngFor="let venta of ventas">
+        <td>{{venta.fecha}}</td>
+        <td>{{venta.vendedor.nombre}}</td>
+        <td>{{venta.sucursal.nombre}}</td>
+        <td>{{venta.lista}}</td>
+        <td>{{venta.total}}</td>
+        <td>
+            <button class="btn btn-default"><i class="fas fa-pen" (click)='onEditVenta(venta.id)'></i></button>
+            &nbsp;
+            <button class="btn btn-default"><i class="fas fa-trash" (click)='onDeleteVenta(venta.id)'></i></button>
+        </td>
+    </tr>
+</table>

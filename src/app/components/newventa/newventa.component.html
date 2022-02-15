@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="row">
+        <div class="col"></div>
+        <div class="col">
+            <form [formGroup]="form" (ngSubmit)="submitForm()">
+                <!-- Vendedor -->
+                <label for="vendedor" class="h6">Vendedor</label><br>
+                <select (change)="selectedVendedorHandler($event)" name="selectedVendedor" id="vendedor" class="form-select">
+                    <option selected></option>
+                    <option *ngFor="let vendedor of vendedores" [value]="vendedor.id">{{vendedor.nombre}}</option>
+                </select>
+                <!-- Sucursal -->
+                <label for="sucursal" class="h6">Sucursal</label><br>
+                <select (change)="selectedSucursalHandler($event)" name="selectedSsucursal" id="sucursal" class="form-select">
+                    <option selected></option>
+                    <option *ngFor="let sucursal of sucursales" [value]="sucursal.id">{{sucursal.nombre}}</option>
+                </select>
+                <!-- Componentes -->
+                <label for="componentes" class="h6">Componentes</label><br>
+                <div *ngFor="let componente of componentes">
+                    <label><input type="checkbox" [value]="componente.id" (change)="componentesHandler($event)">{{componente.nombre}}</label><br>
+                </div>
+                <!-- Fecha -->
+                <label for="fecha" class="h6">Fecha</label><br>
+                <input type="date" class="input-group" formControlName="fecha"><br>
+                <button class="btn btn-primary" type="submit">Guardar</button>
+            </form>
+        </div>
+        <div class="col"></div>
+    </div>
+</div>
